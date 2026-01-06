@@ -1,0 +1,49 @@
+{% extends "catalog/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="articles-hero">
+    <h1>مقالات</h1>
+    <p>مجموعه‌ای از مقالات تخصصی مغز و اعصاب و ستون فقرات</p>
+</section>
+
+<section class="articles-wrapper">
+{% for article in articles %}
+<div class="article-card">
+    <div class="article-text">
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.excerpt|truncatechars:180 }}</p>
+
+        <div class="article-meta">
+            <span class="views">👁 {{ article.views }}</span>
+            <span class="date">
+                {{ article.created_at|date:"Y/m/d" }}
+            </span>
+        </div>
+
+        <a href="{% url 'articles:detail' article.slug %}" class="read-more">
+            بیشتر بخوانید …
+        </a>
+    </div>
+
+    <div class="article-image">
+        <img src="{{ article.image.url }}" alt="{{ article.title }}">
+    </div>
+</div>
+{% endfor %}
+</section>
+
+<!-- pagination -->
+<div class="pagination">
+{% if articles.has_previous %}
+<a href="?page={{ articles.previous_page_number }}">قبلی</a>
+{% endif %}
+
+<span>{{ articles.number }} / {{ articles.paginator.num_pages }}</span>
+
+{% if articles.has_next %}
+<a href="?page={{ articles.next_page_number }}">بعدی</a>
+{% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% load static %}
+ <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="" class="logo">
+                            <img src="{% static 'images/logo.png' %}" href="" alt="logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="{% url 'index' %}">خانه</a></li>
+                             <li class="scroll-to-section"><a href="{% url 'articles' %}">مقالات</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'about' %}">درباره دکتر </a></li>
+                             <li class="scroll-to-section"><a href="{% url 'contact' %}">تماس با ما</a></li>
+
+                            <li class="submenu">
+                                <a href="javascript:">پنل کاربری</a>
+                                <ul>
+                                    <li><a href="#">پنل بیماران </a></li>
+                                    <li><a href="#">Features Page 2</a></li>
+                                    <li><a href="#">Features Page 3</a></li>
+                                    <li><a href="#">Features Page 4</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
